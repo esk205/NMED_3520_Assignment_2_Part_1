@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Credit Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .gallery-item {
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 300px;
+            flex: 1 1 auto;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .caption {
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            .gallery-item {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Image Credit Gallery</h1>
+    <p>Giving Credit to Our Visual Artists</p>
+</header>
+
+<div class="gallery">
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Sample Image 1">
+        <div class="caption">Image 1 by <a href="https://example.com/artist1" target="_blank">Artist Name</a></div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Sample Image 2">
+        <div class="caption">Image 2 by <a href="https://example.com/artist2" target="_blank">Artist Name</a></div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Sample Image 3">
+        <div class="caption">Image 3 by <a href="https://example.com/artist3" target="_blank">Artist Name</a></div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Image Credit Gallery. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
