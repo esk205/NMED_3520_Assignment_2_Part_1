@@ -19,18 +19,18 @@
             text-align: center;
         }
         .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Minimum width of 200px per item */
+            gap: 10px;
+            max-height: 80vh; /* Enables scrolling if content overflows */
+            overflow-y: auto;
             margin: 20px;
+            padding: 10px;
         }
         .gallery-item {
-            margin: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             overflow: hidden;
-            max-width: 300px;
-            flex: 1 1 auto;
         }
         .gallery-item img {
             width: 100%;
@@ -51,8 +51,8 @@
             width: 100%;
         }
         @media (max-width: 600px) {
-            .gallery-item {
-                max-width: 100%;
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust for smaller screens */
             }
         }
     </style>
@@ -60,8 +60,18 @@
 <body>
 
 <header>
-    <h1>Image Credit Gallery</h1>
-    <p>Giving Credit to Our Visual Artists</p>
+        <a href="index.html">
+            <div><img src="images/Title.svg" alt="Museum of ME logo"></div>
+          </a>
+        <div><p>as of 11.1.2024</p></div>
+        <button id="menu-toggle">☰ Menu</button>
+        <nav id="nav-links">
+            <a href="memory.html">Memory and Perception Quirks!</a>
+            <a href="social.html">Social and Behavioral Phenomena!</a>
+            <a href="cognitive.html">Cognitive Biases!</a>
+            <a href="credit.html">Credit</a>
+        </nav>
+        <hr>
 </header>
 
 <div class="gallery">
@@ -77,7 +87,114 @@
         <img src="https://via.placeholder.com/300" alt="Sample Image 3">
         <div class="caption">Image 3 by <a href="https://example.com/artist3" target="_blank">Artist Name</a></div>
     </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Sample Image 4">
+        <div class="caption">Image 4 by <a href="https://example.com/artist4" target="_blank">Artist Name</a></div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Sample Image 5">
+        <div class="caption">Image 5 by <a href="https://example.com/artist5" target="_blank">Artist Name</a></div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Sample Image 6">
+        <div class="caption">Image 6 by <a href="https://example.com/artist6" target="_blank">Artist Name</a></div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Sample Image 7">
+        <div class="caption">Image 7 by <a href="https://example.com/artist7" target="_blank">Artist Name</a></div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Sample Image 8">
+        <div class="caption">Image 8 by <a href="https://example.com/artist8" target="_blank">Artist Name</a></div>
+    </div>
 </div>
+
+<style>
+    /* CSS Styles for Responsive Design */
+
+    /* Header styles */
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+        position: relative; /* Position for the absolute nav links */
+        padding: 20px; /* Add some padding */
+    }
+
+    /* Mobile menu */
+    #nav-links {
+        display: none; /* Hidden by default */
+        flex-direction: column; /* Stack links vertically */
+        background-color: #fff; /* Background color for the menu */
+        position: absolute; /* Position it relative to the header */
+        top: 70px; /* Adjust as necessary */
+        right: 0; /* Align to the right */
+        left: 0; /* Make it extend to the left */
+        margin: 0 auto; /* Center the menu */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add a shadow */
+        z-index: 1000; /* Ensure it appears above other elements */
+        text-align: center; /* Center text in menu */
+    }
+
+    #nav-links a {
+        padding: 10px; /* Padding for links */
+        text-decoration: none; /* Remove underline */
+        color: #333; /* Text color */
+    }
+
+    #nav-links a:hover {
+        background-color: #f0f0f0; /* Hover effect */
+    }
+
+    @media (min-width: 600px) {
+        #nav-links {
+            display: flex; /* Show links in row for larger screens */
+            position: static; /* Reset position */
+            flex-direction: row; /* Align links horizontally */
+            box-shadow: none; /* Remove shadow */
+            margin: 0; /* Reset margin */
+        }
+        #menu-toggle {
+            display: none; /* Hide button on larger screens */
+        }
+    }
+
+    /* Scroll animation */
+    section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s, transform 1s;
+    }
+    section.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Fridge carousel */
+    .fridge img {
+        display: none;
+    }
+    .fridge img:first-child {
+        display: block;
+    }
+
+    /* Image grid styles */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+        gap: 10px; /* space between images */
+        max-width: 800px; /* adjust as needed */
+        margin: 20px auto; /* center the grid */
+    }
+    .grid img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease; /* smooth transition */
+    }
+    .grid img:hover {
+        transform: scale(1.1); /* enlarge image on hover */
+    }
+</style>
 
 <footer>
     <p>&copy; 2024 Image Credit Gallery. All Rights Reserved.</p>
